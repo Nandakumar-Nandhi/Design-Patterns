@@ -1,22 +1,29 @@
-// Classical Java implementation of singleton
-// design pattern
+
 class Singleton
 {
 	private static Singleton obj;
 
-	// private constructor to force use of
-	// getInstance() to create Singleton object
 	private Singleton() {}
 
 	public static Singleton getInstance()
 	{
 		if (obj==null)
+		{
 			obj = new Singleton();
+			System.out.println("Object is created "+obj.toString());
+		}
 		return obj;
 	}
+	public void printSingleton(){
+		System.out.println("Inside print Singleton object: "+obj.toString());
+	}
 }
-class Main{
+public class Main{
     public static void main(String args[]){
-        Singleton obj=Singleton.getInstance();
+        
+        Singleton.getInstance().printSingleton();
+        Singleton.getInstance().printSingleton();
+        Singleton.getInstance().printSingleton();
+		
     }
 }
